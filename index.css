@@ -52,6 +52,7 @@ body{
     width: 0;
     transition: width 1s ease-in-out;
     margin-top: 3vw;
+    
 }
 
 .br-0{
@@ -72,25 +73,41 @@ body{
 
 #start {
     margin: 0 23px;
-    padding: 1px 18px;
+    padding: 5px 18px;
     background: #f3e7f9;
     border-radius: 6px;
     cursor: pointer;
     font-family: 'Baloo Bhaina 2';
     font-size: 15px;
     font-weight: bolder;
+    
+    
 }
+
+
 
 #reset {
     margin: 0 23px;
-    padding: 1px 18px;
+    padding: 5px 18px;
     background: #f3e7f9;
     border-radius: 6px;
     cursor: pointer;
     font-family: 'Baloo Bhaina 2';
     font-size: 15px;
     font-weight: bolder;
+   
 }
+#start :active {
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+#reset :active {
+    
+       
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+
 
 .line{
     background-color: black;
@@ -98,7 +115,7 @@ body{
     width: 0;
     position: absolute;
     background-color: #911d91;
-    transition: width 2s ease-in-out;
+    transition: width .5s ease-in-out;
 }
 
 @media screen and (max-width: 950px)
