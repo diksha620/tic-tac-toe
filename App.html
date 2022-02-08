@@ -24,26 +24,71 @@
             <line x1="140", y1="150" x2="160" y2="180" class="figures"/>
 
         </svg>
+
+        
+
+        
         <div class="wrong-letters-container">
+            <div id="no-of-lives"></div>
             <div class="wrong-letters" id="wrong-letters">
 
             </div>
         </div>
-        <div class="word" id="word">
-           
-        </div>
-        <div class="pop-container show" id="pop-container">
+
+      
+        
+        <div class="word" id="word"></div>
+        <div class="pop-container" id="pop-container">
             <div class="pop">
                 <h2 id="message">
                 You have won
                 </h2>
-                <button id="play">
-                        Play Again
+                <button onclick = "window.location.reload()" id="play">
+                        Play Again 
                 </button>
             </div>
         </div>
     </div>
-    <div class="mssg" id="mssg">
+
+    <div class="container1">
+        <div class="firstrow">
+            <button class="btnn" onclick="func('q')">q</button>
+            <button class="btnn" onclick="func('w')">w</button>
+            <button class="btnn" onclick="func('e')">e</button>
+            <button class="btnn" onclick="func('r')">r</button>
+            <button class="btnn"onclick="func('t')">t</button>
+            <button class="btnn"onclick="func('y')">y</button>
+            <button class="btnn"onclick="func('u')">u</button>
+            <button class="btnn"onclick="func('i')">i</button>
+            <button class="btnn"onclick="func('o')">o</button>
+            <button class="btnn"onclick="func('p')">p</button>
+        </div>
+        <br>
+        <div class="secondrow">
+            <button class="btnn"onclick="func('a')">a</button>
+            <button class="btnn"onclick="func('s')">s</button>
+            <button class="btnn"onclick="func('d')">d</button>
+            <button class="btnn"onclick="func('f')">f</button>
+            <button class="btnn"onclick="func('g')">g</button>
+            <button class="btnn"onclick="func('h')">h</button>
+            <button class="btnn"onclick="func('j')">j</button>
+            <button class="btnn"onclick="func('k')">k</button>
+            <button class="btnn"onclick="func('l')">l</button>
+        </div>
+        <br>
+        <div class="thirdrow">
+            <button class="btnn"onclick="func('z')">z</button>
+            <button class="btnn"onclick="func('x')">x</button>
+            <button class="btnn"onclick="func('c')">c</button>
+            <button class="btnn"onclick="func('v')">v</button>
+            <button class="btnn"onclick="func('b')">b</button>
+            <button class="btnn"onclick="func('n')">n</button>
+            <button class="btnn"onclick="func('m')">m</button>
+            
+        </div>
+    </div>
+    
+    <div class="mssg show" id="mssg">
         <p>You Have Already entered this Letter</p>
     </div>
     <script src="Script.js"></script>

@@ -4,14 +4,14 @@ const playAgain = document.getElementById("play");
 const popup = document.getElementById("pop-container");
 const notification = document.getElementById("mssg");
 const finalMessage = document.getElementById("message");
-
+const noOfLives = document.getElementById("no-of-lives")
+const buttons = document.getElementsByClassName('btnn').value;
 const figureParts = document.querySelectorAll(".figures");
 
 const words = [
   "java",
   "python",
   "ruby",
-  "c++",
   "c",
   "mongodb",
   "html",
@@ -22,6 +22,34 @@ let selectedWord = words[Math.floor(Math.random() * words.length)];
 const correct = [];
 const wrong = [];
 
+function func(alpha) {
+    // alert(alpha);
+ 
+        // if(e.keyCode >= 65 && e.keyCode <= 90){
+        const letter = alpha;
+        if (selectedWord.includes(letter)) {
+
+            if (!correct.includes(letter)) {
+                correct.push(letter);
+                display();
+            }
+            else {
+                showNotification();
+            }
+
+        } else {
+            if (!wrong.includes(letter)) {
+                wrong.push(letter);
+                updateWrongLetterElement();
+            }
+            else {
+                showNotification();
+            }
+        }
+
+
+};
+
 const display = () => {
     wordElement.innerHTML = `${selectedWord
         .split("")
@@ -30,7 +58,7 @@ const display = () => {
             `<span class="letter">${correct.includes(letter) ? letter : ""} </span>`
         ).join("")
       }`;
-
+      noOfLives.innerText = `total lives : ${counter}`
       const innerWord = wordElement.innerText.replace(/\n/g,"");
 
       if(innerWord === selectedWord){
@@ -39,11 +67,14 @@ const display = () => {
       }
       
 }
-
+var counter = 5;
 function updateWrongLetterElement() {
+    counter = counter - 1;
+    noOfLives.innerText = `total lives : ${counter}`
     wrongLettersElement.innerHTML = 
     `${wrong.length > 0 ? "<p>Wrong</p>" : ""}
-    ${wrong.map((letter) => `<span>${letter}</span>`
+    ${wrong.map((letter) => `<span>${letter}</span>
+    `
     )}`
    ;
 
@@ -63,7 +94,7 @@ function updateWrongLetterElement() {
     }
 }
 
-const show = () => {
+const showNotification = () => {
     notification.classList.add("show");
     setTimeout(() => {
         notification.classList.remove("show");
@@ -73,12 +104,13 @@ window.addEventListener("keydown",(e) => {
     if(e.keyCode >= 65 && e.keyCode <= 90){
         const letter = e.key;
         if(selectedWord.includes(letter)){
+
             if(!correct.includes(letter)){
                 correct.push(letter);
                 display();
             }
             else{
-                show();
+                showNotification();
             }
         }else{
             if(!wrong.includes(letter)){
@@ -86,7 +118,7 @@ window.addEventListener("keydown",(e) => {
                 updateWrongLetterElement();
             }
             else{
-                show();
+                showNotification();
             }
         }
 
@@ -99,5 +131,6 @@ playAgain.addEventListener("click",() =>{
     display();
     updateWrongLetterElement()
     popup.style.display = "none";
+    
 });
 display();
